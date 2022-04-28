@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>{{ title }}</title> <!-- обращаемся сразу к ключу 'title' в context-->
+
+</head>
+
+<body>
+<h1>{{ header }}</h1>
+<h2>{{ user }}</h2>
+
+
+{% if is_promotion %}
+    <h2 style="color: red"> GOODS </h2>
+        {% for product_dict in products %}  <!-- обращаемся сразу к ключу в переменной context 'product', это список словарей -->
+            <h3>{{ product_dict.name }}</h3>   <!-- у каждого словаря есть поле name и price, обращаемся к ним через . -->
+            <p>{{ product_dict.price }}</p>
+        {% endfor %}
+{% else %}
+    <h2>GOODS ARE ABSENT</h2>
+{% endif %}
+
+
+</body>
+
+</html>
+
+
